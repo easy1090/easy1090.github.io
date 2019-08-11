@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://easy1090.github.io</id>
     <title>一凡小窝</title>
-    <updated>2019-08-11T08:36:26.988Z</updated>
+    <updated>2019-08-11T08:36:54.644Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://easy1090.github.io"/>
     <link rel="self" href="https://easy1090.github.io/atom.xml"/>
@@ -71,7 +71,7 @@ const App = () =&gt; {
         <link href="https://easy1090.github.io/post/xiao-cheng-xu">
         </link>
         <updated>2019-06-14T12:30:31.000Z</updated>
-        <summary type="html"><![CDATA[<h1 id="appobject-object">App(Object object)</h1>
+        <summary type="html"><![CDATA[<h2 id="appobject-object">App(Object object)</h2>
 <p>注册小程序。接受一个 <code>Object</code> 参数，其指定小程序的生命周期回调等。</p>
 <p>==<strong>App() 必须在 app.js 中调用，必须调用且只能调用一次。不然会出现无法预期的后果。</strong>==</p>
 <p>参数：</p>
@@ -183,7 +183,7 @@ const App = () =&gt; {
 &lt;view&gt; footer &lt;/view&gt;
 </code></pre>
 ]]></summary>
-        <content type="html"><![CDATA[<h1 id="appobject-object">App(Object object)</h1>
+        <content type="html"><![CDATA[<h2 id="appobject-object">App(Object object)</h2>
 <p>注册小程序。接受一个 <code>Object</code> 参数，其指定小程序的生命周期回调等。</p>
 <p>==<strong>App() 必须在 app.js 中调用，必须调用且只能调用一次。不然会出现无法预期的后果。</strong>==</p>
 <p>参数：</p>
