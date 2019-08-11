@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://easy1090.github.io</id>
     <title>Gridea</title>
-    <updated>2019-06-14T12:34:06.475Z</updated>
+    <updated>2019-08-11T08:11:42.072Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://easy1090.github.io"/>
     <link rel="self" href="https://easy1090.github.io/atom.xml"/>
@@ -10,6 +10,61 @@
     <logo>https://easy1090.github.io/images/avatar.png</logo>
     <icon>https://easy1090.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[React-router4]]></title>
+        <id>https://easy1090.github.io/post/react-router4</id>
+        <link href="https://easy1090.github.io/post/react-router4">
+        </link>
+        <updated>2019-08-11T08:10:18.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>不使用react-router时，需要用window.addEventListener('hashchange',)</li>
+</ul>
+<h4 id="路径语法">路径语法</h4>
+<p>路由路径是匹配一个（或一部分）URL 的 一个字符串模式。大部分的路由路径都可以直接按照字面量理解，除了以下几个特殊的符号：</p>
+<p>:paramName – 匹配一段位于 /、? 或 # 之后的 URL。 命中的部分将被作为一个参数</p>
+<p>() – 在它内部的内容被认为是可选的</p>
+<p>'*' – 匹配任意字符（非贪婪的）直到命中下一个字符或者整个 URL 的末尾，并创建一个 splat 参数</p>
+<pre><code>&lt;Route path=&quot;/hello/:name&quot;&gt;         // 匹配 /hello/michael 和 /hello/ryan
+&lt;Route path=&quot;/hello(/:name)&quot;&gt;       // 匹配 /hello, /hello/michael 和 /hello/ryan
+&lt;Route path=&quot;/files/*.*&quot;&gt;           // 匹配 /files/hello.jpg 和 /files/path/to/hello.jpg
+</code></pre>
+<p>如果一个路由使用了相对路径，那么完整的路径将由它的所有祖先节点的路径和自身指定的相对路径拼接而成。使用绝对路径可以使路由匹配行为忽略嵌套关系。</p>
+<h4 id="route-matching">Route Matching</h4>
+<p>The <Switch> is not required for grouping <Route>s, but it can be quite useful. A <Switch> will iterate over all of its children <Route> elements and only render the first one that matches the current location. This helps when multiple route’s paths match the same pathname, when animating transitions between routes, and in identifying when no routes match the current location (so that you can render a “404” component).</p>
+<pre><code class="language-jsx">&lt;Switch&gt;
+  &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
+  &lt;Route path=&quot;/about&quot; component={About} /&gt;
+  &lt;Route path=&quot;/contact&quot; component={Contact} /&gt;
+  {/* when none of the above match, &lt;NoMatch&gt; will be rendered */}
+  &lt;Route component={NoMatch} /&gt;
+&lt;/Switch&gt;
+</code></pre>
+<h4 id="route-rendering-props">Route Rendering Props</h4>
+<p>You have three prop choices for how you render a component for a given <Route>: component, render, and children. You can check out the <Route> documentation for more information on each one, but here we’ll focus on component and render because those are the two you will almost always use.component should be used when you have an existing component (either a React.Component or a stateless functional component) that you want to render. render, which takes an inline function, should only be used when you have to pass in-scope variables to the component you want to render. You should not use the component prop with an inline function to pass in-scope variables because you will get undesired component unmounts/remounts.</p>
+<pre><code class="language-jsx">const Home = () =&gt; &lt;div&gt;Home&lt;/div&gt;;
+
+const App = () =&gt; {
+  const someVariable = true;
+
+  return (
+    &lt;Switch&gt;
+      {/* these are good */}
+      &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
+      &lt;Route
+        path=&quot;/about&quot;
+        render={props =&gt; &lt;About {...props} extra={someVariable} /&gt;}
+      /&gt;
+      {/* do not do this */}
+      &lt;Route
+        path=&quot;/contact&quot;
+        component={props =&gt; &lt;Contact {...props} extra={someVariable} /&gt;}
+      /&gt;
+    &lt;/Switch&gt;
+  );
+};
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[小程序]]></title>
         <id>https://easy1090.github.io/post/xiao-cheng-xu</id>
