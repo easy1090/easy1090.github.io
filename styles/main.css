@@ -1686,7 +1686,6 @@ a:active {
 }
 /*--- 头部 ---*/
 header {
-  background-image: url("../../timg.jpeg");
   text-align: center;
   padding: 120px 0px 40px 0px;
   background: #515865 center no-repeat;
@@ -2665,4 +2664,7 @@ ul.links li:hover .bg {
   ::-webkit-scrollbar-thumb:active {
     background-color: #aaa;
   }
+}
+header {
+  background-image: url(https://kulikl.oss-cn-beijing.aliyuncs.com/wallhaven-ox2pz7_gaitubao_.jpg);
 }
