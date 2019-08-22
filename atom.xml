@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://easy1090.github.io</id>
     <title>一凡小窝</title>
-    <updated>2019-08-11T09:11:56.500Z</updated>
+    <updated>2019-08-22T05:27:11.804Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://easy1090.github.io"/>
     <link rel="self" href="https://easy1090.github.io/atom.xml"/>
@@ -16,54 +16,6 @@
         <link href="https://easy1090.github.io/post/react-router4">
         </link>
         <updated>2019-08-11T08:10:18.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>不使用react-router时，需要用window.addEventListener('hashchange',)</li>
-</ul>
-<h4 id="路径语法">路径语法</h4>
-<p>路由路径是匹配一个（或一部分）URL 的 一个字符串模式。大部分的路由路径都可以直接按照字面量理解，除了以下几个特殊的符号：</p>
-<p>:paramName – 匹配一段位于 /、? 或 # 之后的 URL。 命中的部分将被作为一个参数</p>
-<p>() – 在它内部的内容被认为是可选的</p>
-<p>'*' – 匹配任意字符（非贪婪的）直到命中下一个字符或者整个 URL 的末尾，并创建一个 splat 参数</p>
-<pre><code>&lt;Route path=&quot;/hello/:name&quot;&gt;         // 匹配 /hello/michael 和 /hello/ryan
-&lt;Route path=&quot;/hello(/:name)&quot;&gt;       // 匹配 /hello, /hello/michael 和 /hello/ryan
-&lt;Route path=&quot;/files/*.*&quot;&gt;           // 匹配 /files/hello.jpg 和 /files/path/to/hello.jpg
-</code></pre>
-<p>如果一个路由使用了相对路径，那么完整的路径将由它的所有祖先节点的路径和自身指定的相对路径拼接而成。使用绝对路径可以使路由匹配行为忽略嵌套关系。</p>
-<h4 id="route-matching">Route Matching</h4>
-<p>The <Switch> is not required for grouping <Route>s, but it can be quite useful. A <Switch> will iterate over all of its children <Route> elements and only render the first one that matches the current location. This helps when multiple route’s paths match the same pathname, when animating transitions between routes, and in identifying when no routes match the current location (so that you can render a “404” component).</p>
-<pre><code class="language-jsx">&lt;Switch&gt;
-  &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
-  &lt;Route path=&quot;/about&quot; component={About} /&gt;
-  &lt;Route path=&quot;/contact&quot; component={Contact} /&gt;
-  {/* when none of the above match, &lt;NoMatch&gt; will be rendered */}
-  &lt;Route component={NoMatch} /&gt;
-&lt;/Switch&gt;
-</code></pre>
-<h4 id="route-rendering-props">Route Rendering Props</h4>
-<p>You have three prop choices for how you render a component for a given <Route>: component, render, and children. You can check out the <Route> documentation for more information on each one, but here we’ll focus on component and render because those are the two you will almost always use.component should be used when you have an existing component (either a React.Component or a stateless functional component) that you want to render. render, which takes an inline function, should only be used when you have to pass in-scope variables to the component you want to render. You should not use the component prop with an inline function to pass in-scope variables because you will get undesired component unmounts/remounts.</p>
-<pre><code class="language-jsx">const Home = () =&gt; &lt;div&gt;Home&lt;/div&gt;;
-
-const App = () =&gt; {
-  const someVariable = true;
-
-  return (
-    &lt;Switch&gt;
-      {/* these are good */}
-      &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
-      &lt;Route
-        path=&quot;/about&quot;
-        render={props =&gt; &lt;About {...props} extra={someVariable} /&gt;}
-      /&gt;
-      {/* do not do this */}
-      &lt;Route
-        path=&quot;/contact&quot;
-        component={props =&gt; &lt;Contact {...props} extra={someVariable} /&gt;}
-      /&gt;
-    &lt;/Switch&gt;
-  );
-};
-</code></pre>
-]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[小程序]]></title>
@@ -71,119 +23,5 @@ const App = () =&gt; {
         <link href="https://easy1090.github.io/post/xiao-cheng-xu">
         </link>
         <updated>2019-06-14T12:30:31.000Z</updated>
-        <content type="html"><![CDATA[ <!-- more -->
-<h2 id="appobject-object">App(Object object)</h2>
-<p>注册小程序。接受一个 <code>Object</code> 参数，其指定小程序的生命周期回调等。</p>
-<p>==<strong>App() 必须在 app.js 中调用，必须调用且只能调用一次。不然会出现无法预期的后果。</strong>==</p>
-<p>参数：</p>
-<h5 id="object-object">Object object</h5>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">属性</th>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">默认值</th>
-<th style="text-align:left">必填</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onlaunchobject-object">onLaunch</a></td>
-<td style="text-align:left">function</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">否</td>
-<td style="text-align:center">生命周期回调——监听小程序初始化。全局只会触发一次。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onshowobject-object">onShow</a></td>
-<td style="text-align:left">function</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">否</td>
-<td style="text-align:center">生命周期回调——监听小程序启动或切前台。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onhide">onHide</a></td>
-<td style="text-align:left">function</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">否</td>
-<td style="text-align:center">生命周期回调——监听小程序切后台。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onerrorstring-error">onError</a></td>
-<td style="text-align:left">function</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">否</td>
-<td style="text-align:center">错误监听函数。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onpagenotfoundobject-object">onPageNotFound</a></td>
-<td style="text-align:left">function</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">否</td>
-<td style="text-align:center">页面不存在监听函数。</td>
-</tr>
-<tr>
-<td style="text-align:left">其他</td>
-<td style="text-align:left">any</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">否</td>
-<td style="text-align:center">开发者可以添加任意的函数或数据变量到 <code>Object</code> 参数中，用 <code>this</code>可以访问</td>
-</tr>
-</tbody>
-</table>
-<h2 id="getapp">getApp</h2>
-<p>获取到小程序全局唯一的 <code>App</code> 实例。</p>
-<p>参数：allowDefault    ——在 <code>App</code> 未定义时返回默认实现。当App被调用时，默认实现中定义的属性会被覆盖合并到App中。一般用于[独立分包]</p>
-<h4 id="注意">注意</h4>
-<ul>
-<li>不要在定义于 <code>App()</code> 内的函数中，或调用 <code>App</code> 前调用 <code>getApp()</code> ，使用 <code>this</code> 就可以拿到 app 实例。</li>
-<li>通过 <code>getApp()</code> 获取实例之后，不要私自调用生命周期函数。</li>
-</ul>
-<h3 id="pageprototypesetdataobject-data-function-callback">Page.prototype.setData(Object data, Function callback)</h3>
-<p><code>setData</code> 函数用于将数据从逻辑层发送到视图层（异步），同时改变对应的 <code>this.data</code> 的值（同步）。</p>
-<p><strong>注意：</strong></p>
-<ol>
-<li><strong>直接修改 this.data 而不调用 this.setData 是无法改变页面的状态的，还会造成数据不一致</strong>。</li>
-<li>仅支持设置可 JSON 化的数据。</li>
-<li>单次设置的数据不能超过1024kB，请尽量避免一次设置过多的数据。</li>
-<li>请不要把 data 中任何一项的 value 设为 <code>undefined</code> ，否则这一项将不被设置并可能遗留一些潜在问题。</li>
-</ol>
-<h3 id="pageobject-getcurrentpages">PageObject[] getCurrentPages()</h3>
-<p>获取当前页面栈。数组中第一个元素为首页，最后一个元素为当前页面。</p>
-<p><strong>注意：</strong></p>
-<ul>
-<li><strong>不要尝试修改页面栈，会导致路由以及页面状态错误。</strong></li>
-<li>不要在 <code>App.onLaunch</code> 的时候调用 <code>getCurrentPages()</code>，此时 <code>page</code> 还没有生成。</li>
-</ul>
-<hr>
-<hr>
-<h1 id="引用">引用</h1>
-<p>WXML 提供两种文件引用方式<code>import</code>和<code>include</code>。</p>
-<h3 id="import">import</h3>
-<p><code>import</code>可以在该文件中使用目标文件定义的<code>template</code>，如：</p>
-<p>在 item.wxml 中定义了一个叫<code>item</code>的<code>template</code>：</p>
-<pre><code class="language-html">&lt;!-- item.wxml --&gt;
-&lt;template name=&quot;item&quot;&gt;
-  &lt;text&gt;{{text}}&lt;/text&gt;
-&lt;/template&gt;
-</code></pre>
-<p>在 index.wxml 中引用了 item.wxml，就可以使用<code>item</code>模板：</p>
-<h3 id="import-的作用域">import 的作用域</h3>
-<p>import 有作用域的概念，即只会 import 目标文件中定义的 template，而不会 import 目标文件 import 的 template。</p>
-<p><strong>如：C import B，B import A，在C中可以使用B定义的template，在B中可以使用A定义的template，但是C不能使用A定义的template</strong>。</p>
-<h3 id="include">include</h3>
-<p><code>include</code> 可以将目标文件<strong>除了</strong> <code>&lt;template/&gt;</code> <code>&lt;wxs/&gt;</code> 外的整个代码引入，相当于是拷贝到 <code>include</code> 位置，如：</p>
-<pre><code class="language-html">&lt;!-- index.wxml --&gt;
-&lt;include src=&quot;header.wxml&quot;/&gt;
-&lt;view&gt; body &lt;/view&gt;
-&lt;include src=&quot;footer.wxml&quot;/&gt;
-&lt;!-- header.wxml --&gt;
-&lt;view&gt; header &lt;/view&gt;
-&lt;!-- footer.wxml --&gt;
-&lt;view&gt; footer &lt;/view&gt;
-</code></pre>
-<!-- more -->
-]]></content>
     </entry>
 </feed>
